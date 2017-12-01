@@ -13,11 +13,12 @@
 
 @protocol UIActivityItemSource;
 
-@interface ShareSource : NSMutableDictionary <UIActivityItemSource>
+@interface ShareSource : NSObject <UIActivityItemSource>
 
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSData *data;
+@property (nonatomic, strong) UIImage *img;
 
 @end
 

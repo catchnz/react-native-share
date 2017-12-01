@@ -128,13 +128,27 @@ RCT_EXPORT_METHOD(showShareActionSheetWithOptions:(NSDictionary *)options
     RCTLogError(@"Unable to show action sheet from app extension");
     return;
   }
-
-  ShareSource *items = [[ShareSource alloc] init];
-  NSMutableArray<id> *item = [NSMutableArray array];
+    
+    ShareSource *msg = [[ShareSource alloc] init];
+    
+    ShareSource *img = [[ShareSource alloc] init];
+    
+    ShareSource *dat = [[ShareSource alloc] init];
+    
+    ShareSource *url = [[ShareSource alloc] init];
   
+  NSMutableArray<id> *item = [NSMutableArray array];
+  NSString *imgParam = [RCTConvert NSString:options[@"img"]];
+
+  if (imgParam) {
+    UIImage *image = [UIImage imageWithContentsOfFile:imgParam];
+    img.img = image;
+  }
   NSString *message = [RCTConvert NSString:options[@"message"]];
+
   if (message) {
-      items.message = message;
+      msg.message = message;
+      [item addObject:msg];
   }
   NSURL *URL = [RCTConvert NSURL:options[@"url"]];
   if (URL) {
@@ -147,18 +161,13 @@ RCT_EXPORT_METHOD(showShareActionSheetWithOptions:(NSDictionary *)options
         failureCallback(error);
         return;
       }
-        items.data = data;
+      dat.data = data;
+      [item addObject:data];
     } else {
-        items.url = URL;
+        url.url = URL;
+        [item addObject:url];
     }
   }
-    
-  if (items.count == 0) {
-    RCTLogError(@"No `url` or `message` to share");
-    return;
-  }
-    
-  [item addObject:items];
 
   UIActivityViewController *shareController = [[UIActivityViewController alloc] initWithActivityItems:item applicationActivities:nil];
 

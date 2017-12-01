@@ -13,20 +13,44 @@
 - (id)activityViewController:(UIActivityViewController *)ctrlr
            itemForActivityType:(NSString *)activityType
 {
-    NSLog(@"%@", activityType);
-    NSString *string1 = @"Placeholder";
+//    NSLog(@"Catch test - Activity: %@", activityType);
     
-#if RCT_DEV
-    RCTLogInfo(@"[PERF ASSETS] Sharing %@", activityType);
-#endif
-    return string1;
+    // remove anything but Image for whatsapp
+    if ([activityType isEqualToString:@"net.whatsapp.WhatsApp.ShareExtension"]) {
+        
+        if (!self.img)
+            return nil;
+        
+    }
+    
+    if (self.img) {
+        return self.img;
+    } else if (self.data) {
+        return self.data;
+    } else if (self.url) {
+        return self.url;
+    } else if (self.message) {
+        return self.message;
+    }
+    
+    return nil;
 }
 
 - (id)activityViewControllerPlaceholderItem:(UIActivityViewController *)ctrlr
 {
-    NSString *string1 = @"Placeholder";
     
-    return string1;
+    if (self.img) {
+        return self.img;
+    } else if (self.data) {
+        return self.data;
+    } else if (self.url) {
+        return self.url;
+    } else if (self.message) {
+        return self.message;
+    } else {
+        return self.message;
+    }
+    
 }
 
 @end
