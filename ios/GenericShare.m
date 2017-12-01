@@ -15,6 +15,8 @@
     serviceType:(NSString*)serviceType {
 
     NSLog(@"Try open view");
+    NSLog(serviceType);
+    NSLog(options[@"social"]);
     if([SLComposeViewController isAvailableForServiceType:serviceType]) {
 
         SLComposeViewController *composeController = [SLComposeViewController  composeViewControllerForServiceType:serviceType];
@@ -38,7 +40,11 @@
             }
         }
 
-        if ([options objectForKey:@"message"] && [options objectForKey:@"message"] != [NSNull null]) {
+        if (
+            [options objectForKey:@"message"] &&
+            [options objectForKey:@"message"] != [NSNull null] &&
+            serviceType
+        ) {
             NSString *text = [RCTConvert NSString:options[@"message"]];
             [composeController setInitialText:text];
         }

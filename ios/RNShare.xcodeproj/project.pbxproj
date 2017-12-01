@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		798517981FD00AA000532E28 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 798517971FD00AA000532E28 /* ShareManager.m */; };
+		79D3F9AC1FBD440500026085 /* ShareSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 79D3F9AB1FBD440500026085 /* ShareSource.m */; };
 		B33C22851D441713006BCD98 /* GenericShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C22841D441713006BCD98 /* GenericShare.m */; };
 		B33C22891D4419E8006BCD98 /* WhatsAppShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C22881D4419E8006BCD98 /* WhatsAppShare.m */; };
 		B33C228B1D442577006BCD98 /* EmailShare.m in Sources */ = {isa = PBXBuildFile; fileRef = B33C228A1D442576006BCD98 /* EmailShare.m */; };
@@ -28,6 +30,11 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNShare.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		798517971FD00AA000532E28 /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
+		798517991FD00AB400532E28 /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
+		79D3F9A91FBD3D0300026085 /* UIActivityItemSource_ShareSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIActivityItemSource_ShareSource.h; sourceTree = "<group>"; };
+		79D3F9AA1FBD43F300026085 /* ShareSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareSource.h; sourceTree = "<group>"; };
+		79D3F9AB1FBD440500026085 /* ShareSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareSource.m; sourceTree = "<group>"; };
 		B33C22841D441713006BCD98 /* GenericShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericShare.m; sourceTree = "<group>"; };
 		B33C22861D441723006BCD98 /* GenericShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenericShare.h; sourceTree = "<group>"; };
 		B33C22871D4419DA006BCD98 /* WhatsAppShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhatsAppShare.h; sourceTree = "<group>"; };
@@ -62,6 +69,11 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				798517991FD00AB400532E28 /* ShareManager.h */,
+				798517971FD00AA000532E28 /* ShareManager.m */,
+				79D3F9AB1FBD440500026085 /* ShareSource.m */,
+				79D3F9AA1FBD43F300026085 /* ShareSource.h */,
+				79D3F9A91FBD3D0300026085 /* UIActivityItemSource_ShareSource.h */,
 				B33C22801D43F9B0006BCD98 /* social */,
 				B3E7B5881CC2AC0600A0062D /* RNShare.h */,
 				B3E7B5891CC2AC0600A0062D /* RNShare.m */,
@@ -141,9 +153,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3EEE48E1D4844E7008422B6 /* GooglePlusShare.m in Sources */,
+				798517981FD00AA000532E28 /* ShareManager.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNShare.m in Sources */,
 				B33C22891D4419E8006BCD98 /* WhatsAppShare.m in Sources */,
 				B33C228B1D442577006BCD98 /* EmailShare.m in Sources */,
+				79D3F9AC1FBD440500026085 /* ShareSource.m in Sources */,
 				B33C22851D441713006BCD98 /* GenericShare.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

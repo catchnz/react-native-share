@@ -34,17 +34,22 @@ class RNShare {
   static open(options) {
     return new Promise((resolve, reject) => {
       if (Platform.OS === "ios") {
-        ActionSheetIOS.showShareActionSheetWithOptions(options, (error) => {
-          return reject({ error: error });
-        }, (success, activityType) => {
-          if(success) {
-            return resolve({
-              app: activityType
-            });
-          } else {
-            reject({ error: "User did not share" });
+            
+          if (__DEV__) console.log('calling internal sheet');
+          // copied from RN action sheet        
+        NativeModules.ShareManager.showActionSheetWithOptions(
+          {...options},
+          (success, activityType) => {
+              if(success) {
+                  return resolve({
+                      app: activityType
+                  });
+              } else {
+                  reject({ error: "User did not share" });
+              }
           }
-        });
+        );
+        
       } else {
         NativeModules.RNShare.open(options,(e) => {
           return reject({ error: e });
@@ -59,7 +64,7 @@ class RNShare {
   static shareSingle(options){
     if (Platform.OS === "ios" || Platform.OS === "android") {
       return new Promise((resolve, reject) => {
-        NativeModules.RNShare.shareSingle(options,(e) => {
+        NativeModules.RCTRNShare.shareSingle(options,(e) => {
           return reject({ error: e });
         },(e) => {
           return resolve({
