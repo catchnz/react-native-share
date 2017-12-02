@@ -14,9 +14,6 @@
     successCallback:(RCTResponseSenderBlock)successCallback
     serviceType:(NSString*)serviceType {
 
-    NSLog(@"Try open view");
-    NSLog(serviceType);
-    NSLog(options[@"social"]);
     if([SLComposeViewController isAvailableForServiceType:serviceType]) {
 
         SLComposeViewController *composeController = [SLComposeViewController  composeViewControllerForServiceType:serviceType];
